@@ -1,0 +1,29 @@
+services:
+  look:
+    build: .
+    depends_on:
+      - elastic
+    container_name: look
+    restart: unless-stopped
+    ports:
+      - "80:80"
+    networks:
+      - internal
+    
+  elastic:
+    image: "elasticsearch:8.14.3"
+    container_name: look-elastic
+    restart: unless-stopped
+    networks:
+      - internal
+    volumes:
+      - ./esdata:/usr/share/elasticsearch/data
+    environment:
+      - ES_JAVA_OPTS=-Xmx3g
+      - bootstrap.memory_lock=true
+      - xpack.security.http.ssl.enabled=false
+      - xpack.security.transport.ssl.enabled=false
+      - discovery.type=single-node
+
+networks:
+  internal: 

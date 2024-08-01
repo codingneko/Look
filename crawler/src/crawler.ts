@@ -1,9 +1,12 @@
 import axios from 'axios';
 import cheerio from 'cheerio';
 import * as url from 'url';
-import {Client} from '@elastic/elasticsearch';
+import { Client } from '@elastic/elasticsearch';
+import { Config } from './config.interface';
 
-const elastic = new Client({ node: 'http://localhost:9200' });
+const config: Config = require('../config/crawler.json');
+
+const elastic = new Client({ node: config.elasticsearch_base_url});
 
 const startUrl = 'https://denmchenry.com/';
 const visited: Set<string> = new Set();
