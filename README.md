@@ -4,7 +4,7 @@ Look is an experimental search engine with its own web crawler.
 ## Why are you doing this?
 I want to test whether I can build a better google by ignoring some robots.txt files, and not shoving AI and stupid advertisement cringe down everyone's throats.
 
-## TODOs: What's working, what's NOT working, and what needs to improve?
+## What's working, what's NOT working, and what needs to improve?
 ### Crawler
 - Indexing: For now only URLs are indexed, I think it would be useful to also save the page title and meta tags with descriptions if available, or text snippets from the page.
 - Robots.txt: For now they're completely ignored, the idea here is to follow robots.txt but ignore stupid rules like Reddit asking not to be indexed unless you're Google.
